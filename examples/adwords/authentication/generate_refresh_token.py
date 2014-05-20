@@ -47,7 +47,8 @@ def main():
   oauthlib_client = oauth2.WebApplicationClient(CLIENT_ID)
 
   authorize_url = oauthlib_client.prepare_request_uri(
-      GOOGLE_OAUTH2_AUTH_ENDPOINT, redirect_uri=CALLBACK_URL, scope=SCOPE)
+      GOOGLE_OAUTH2_AUTH_ENDPOINT, approval_prompt="force", access_type="offline", 
+      redirect_uri=CALLBACK_URL, scope=SCOPE)
   print ('Log in to your AdWords account and open the following URL: \n%s\n' %
          authorize_url)
   print 'After approving the token enter the verification code (if specified).'
